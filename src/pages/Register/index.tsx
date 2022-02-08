@@ -7,12 +7,38 @@ import {
   Button,
   Image
 } from 'react-bootstrap';
-// import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
+import { FormEvent, useEffect, useState } from 'react';
+import axios from 'axios';
 import image from '../../images/joseph-gonzalez-fdlZBWIP0aM-unsplash.jpg';
 import logo from '../../images/eat_Flavor-black.png';
 
 function Register() {
-  // const navigate = useNavigate();
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const navigate = useNavigate();
+  const [registerError, setRegisterError] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => setRegisterError(false), 2000);
+  }, [registerError]);
+
+  const signOn = (e: FormEvent) => {
+    e.preventDefault();
+    axios
+      .post('https://eatflavor-bd.herokuapp.com/register', {
+        name,
+        email,
+        password
+      })
+      .then(r => {
+        localStorage.setItem('user', JSON.stringify(r.data));
+        navigate('/products');
+      })
+      .catch(() => setRegisterError(true));
+  };
+
   return (
     <Container
       fluid
@@ -36,13 +62,18 @@ function Register() {
                     </Card.Title>
                   </Row>
                   <Row>
-                    <Form>
+                    <Form onSubmit={e => signOn(e)}>
                       <Form.Group
                         className="my-3 mx-2 col-12"
                         controlId="formBasicPassword"
                       >
                         <Form.Label>Nome</Form.Label>
-                        <Form.Control type="text" placeholder="Seu Nome" />
+                        <Form.Control
+                          value={name}
+                          onChange={({ target }) => setName(target.value)}
+                          type="text"
+                          placeholder="Seu Nome"
+                        />
                       </Form.Group>
 
                       <Form.Group
@@ -51,6 +82,8 @@ function Register() {
                       >
                         <Form.Label>Email</Form.Label>
                         <Form.Control
+                          value={email}
+                          onChange={({ target }) => setEmail(target.value)}
                           type="email"
                           placeholder="seu@email.com"
                         />
@@ -61,7 +94,12 @@ function Register() {
                         controlId="formBasicPassword"
                       >
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="********" />
+                        <Form.Control
+                          value={password}
+                          onChange={({ target }) => setPassword(target.value)}
+                          type="password"
+                          placeholder="********"
+                        />
                       </Form.Group>
 
                       <Button

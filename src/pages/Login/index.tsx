@@ -22,27 +22,31 @@ function Login() {
 
   const checkNavigation = (data: { email: string }) => {
     if (data.email === 'admin@admin.com') navigate('/admin/orders');
-    navigate('/products');
+    if (data.email !== 'admin@admin.com') navigate('/products');
   };
 
-  useEffect(() => {
-    const validateToken = async (token: string) => {
-      const isValid = await axios
-        .post('http://localhost:3001/token', { token })
-        .then(r => r.data.validUser);
-      return isValid;
-    };
+  // useEffect(() => {
+  //   const validateToken = async (token: string) => {
+  //     const isValid = await axios
+  //       .post('https://eatflavor-bd.herokuapp.com/validate', { token })
+  //       .then(r => r.data.validUser);
+  //     return isValid;
+  //   };
 
-    const getUser = async () => {
-      const loggedUser = JSON.parse(localStorage.user);
-      const isValid = await validateToken(loggedUser.token);
-      if (loggedUser && isValid) {
-        checkNavigation(loggedUser.email);
-      }
-    };
+  //   const getUser = async () => {
+  //     try {
+  //       const loggedUser = JSON.parse(localStorage.user);
+  //       const isValid = await validateToken(loggedUser.token);
+  //       if (loggedUser && isValid) {
+  //         checkNavigation(loggedUser.email);
+  //       }
+  //     } catch (err) {
+  //       console.log(`Error:${err}`);
+  //     }
+  //   };
 
-    getUser();
-  }, []);
+  //   getUser();
+  // }, [navigate]);
 
   useEffect(() => {
     setTimeout(() => setLoginError(false), 2000);
@@ -56,7 +60,7 @@ function Login() {
         password
       })
       .then(r => {
-        localStorage.setItem('user', r.data);
+        localStorage.setItem('user', JSON.stringify(r.data));
         checkNavigation(r.data);
       })
       .catch(() => setLoginError(true));
@@ -77,6 +81,7 @@ function Login() {
         style={{ width: '138px', height: '138px', left: '80px', top: '50px' }}
         className="w-5 h-5 position-absolute"
       />
+
       <Row className="w-100">
         <Col className="w-50 d-flex justify-content-center">
           <Card className="h-50 w-50 align-self-center text-center overflow-hidden shadow border-none">
