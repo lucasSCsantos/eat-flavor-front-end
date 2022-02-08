@@ -6,9 +6,12 @@ import {
   BsBagFill,
   BsBoxArrowRight
 } from 'react-icons/bs';
+import { useState } from 'react';
 import logo from '../../images/eat_Flavor-black.png';
+import Checkout from './Checkout';
 
 function Products() {
+  const [show, setShow] = useState(false);
   return (
     <>
       <Navbar bg="white" expand="lg" className="shadow-sm">
@@ -30,7 +33,11 @@ function Products() {
               <BsReceipt size={40} className="text-dark" />
             </Nav.Link>
             <Nav.Link>
-              <BsBagFill size={40} className="text-dark" />
+              <BsBagFill
+                size={40}
+                className="text-dark"
+                onClick={() => setShow(true)}
+              />
             </Nav.Link>
             <Nav.Link>
               <BsBoxArrowRight size={40} className="text-dark" />
@@ -38,6 +45,7 @@ function Products() {
           </Nav>
         </Container>
       </Navbar>
+      <Checkout show={show} onHide={() => setShow(false)} />
       <Outlet />
     </>
   );
