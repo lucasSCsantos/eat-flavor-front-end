@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router';
 import image from '../../images/lily-banse--YHSwy6uqvk-unsplash.jpg';
 import logo from '../../images/eat_Flavor-black.png';
 
-function Login() {
+function Register() {
   const navigate = useNavigate();
   return (
     <Container
@@ -63,15 +63,6 @@ function Login() {
                       >
                         Login
                       </Button>
-
-                      <Button
-                        variant="outline-success"
-                        type="submit"
-                        className="my-3 mx-2 col-12"
-                        onClick={() => navigate('/register')}
-                      >
-                        Ainda não tenho uma conta!
-                      </Button>
                     </Form>
                   </Row>
                 </Card.Body>
@@ -93,4 +84,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;
