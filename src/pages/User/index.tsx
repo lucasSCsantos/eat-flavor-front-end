@@ -16,7 +16,7 @@ function Products() {
     <>
       <Navbar bg="white" expand="lg" className="shadow-sm">
         <Container>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand href="/">
             <img
               src={logo}
               width="80"
@@ -26,10 +26,10 @@ function Products() {
             />
           </Navbar.Brand>
           <Nav className="ml-auto d-flex w-25 justify-content-between">
-            <Nav.Link>
+            <Nav.Link href="/user/products">
               <BsFillHouseFill size={40} className="text-dark" />
             </Nav.Link>
-            <Nav.Link>
+            <Nav.Link href="/user/orders">
               <BsReceipt size={40} className="text-dark" />
             </Nav.Link>
             <Nav.Link>
