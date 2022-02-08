@@ -37,7 +37,7 @@ function Register() {
       })
       .then(r => {
         localStorage.setItem('user', JSON.stringify(r.data));
-        navigate('/products');
+        navigate('/user/products');
       })
       .then(() => setLoading(false))
       .catch(() => setRegisterError(true));

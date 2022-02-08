@@ -24,7 +24,7 @@ function Login() {
 
   const checkNavigation = (data: { email: string }) => {
     if (data.email === 'admin@admin.com') navigate('/admin/orders');
-    if (data.email !== 'admin@admin.com') navigate('/products');
+    if (data.email !== 'admin@admin.com') navigate('/user/products');
   };
 
   // useEffect(() => {
