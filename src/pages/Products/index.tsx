@@ -1,45 +1,40 @@
-import { Container, Nav, Navbar } from 'react-bootstrap';
-import { Outlet } from 'react-router';
-import {
-  BsFillHouseFill,
-  BsReceipt,
-  BsBagFill,
-  BsBoxArrowRight
-} from 'react-icons/bs';
-import logo from '../../images/eat_Flavor-black.png';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import { Container, Row } from 'react-bootstrap';
+import ProductCard, { ProductType } from './ProductCard';
 
 function Products() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const { token } = JSON.parse(localStorage.user);
+
+    axios
+      .get('https://eatflavor-bd.herokuapp.com/products', {
+        headers: { authorization: token }
+      })
+      .then(r => {
+        setProducts(r.data.products);
+      })
+      .catch(() => console.log('erro'));
+  }, []);
+
   return (
-    <>
-      <Navbar bg="white" expand="lg" className="shadow-sm">
-        <Container>
-          <Navbar.Brand href="#home">
-            <img
-              src={logo}
-              width="80"
-              height="80"
-              className="d-inline-block align-top"
-              alt="Eat Flavor logo"
-            />
-          </Navbar.Brand>
-          <Nav className="ml-auto d-flex w-25 justify-content-between">
-            <Nav.Link>
-              <BsFillHouseFill size={40} className="text-dark" />
-            </Nav.Link>
-            <Nav.Link>
-              <BsReceipt size={40} className="text-dark" />
-            </Nav.Link>
-            <Nav.Link>
-              <BsBagFill size={40} className="text-dark" />
-            </Nav.Link>
-            <Nav.Link>
-              <BsBoxArrowRight size={40} className="text-dark" />
-            </Nav.Link>
-          </Nav>
-        </Container>
-      </Navbar>
-      <Outlet />
-    </>
+    <Container fluid="lg" className="d-grid" style={{ height: '866px' }}>
+      <Row className="w-100 pt-5 mt-5" style={{ height: '50vh' }}>
+        <Row className="m-auto">
+          <h1 className="fw-bold mb-4">Menu do dia</h1>
+        </Row>
+        <Row
+          className="m-auto d-flex justify-content-between"
+          style={{ height: '90%' }}
+        >
+          {products.map((product: ProductType) => (
+            <ProductCard product={product} key={product.name} />
+          ))}
+        </Row>
+      </Row>
+    </Container>
   );
 }
 
