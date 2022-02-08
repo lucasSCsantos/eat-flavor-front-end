@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import Login from './pages/Login';
-import Register from './pages/Register';
+import Login from '../pages/Login';
+import Register from '../pages/Register';
 // import UserRoutes from './routes/UserRoutes';
 
 function RoutesList() {
