@@ -3,7 +3,7 @@ import Login from '../pages/Login';
 import User from '../pages/User';
 import Register from '../pages/Register';
 import Products from '../pages/Products';
-// import UserRoutes from './routes/UserRoutes';
+import OrderTrack from '../pages/OrderTrack';
 
 function RoutesList() {
   return (
@@ -14,7 +14,7 @@ function RoutesList() {
       <Route path="/user" element={<User />}>
         <Route path="products" element={<Products />} />
         <Route path="orders" />
-        <Route path=":order/track" />
+        <Route path=":order/track" element={<OrderTrack />} />
       </Route>
       <Route path="/admin/orders" />
       <Route path="/admin/:order/track" />
