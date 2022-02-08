@@ -5,20 +5,73 @@ import {
   Form,
   Row,
   Button,
-  Image
+  Image,
+  Modal
 } from 'react-bootstrap';
 import { useNavigate } from 'react-router';
+import { FormEvent, useEffect, useState } from 'react';
+import axios from 'axios';
 import image from '../../images/lily-banse--YHSwy6uqvk-unsplash.jpg';
 import logo from '../../images/eat_Flavor-black.png';
 
 function Login() {
   const navigate = useNavigate();
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [loginError, setLoginError] = useState(false);
+
+  const checkNavigation = (data: { email: string }) => {
+    if (data.email === 'admin@admin.com') navigate('/admin/orders');
+    navigate('/products');
+  };
+
+  useEffect(() => {
+    const validateToken = async (token: string) => {
+      const isValid = await axios
+        .post('http://localhost:3001/token', { token })
+        .then(r => r.data.validUser);
+      return isValid;
+    };
+
+    const getUser = async () => {
+      const loggedUser = JSON.parse(localStorage.user);
+      const isValid = await validateToken(loggedUser.token);
+      if (loggedUser && isValid) {
+        checkNavigation(loggedUser.email);
+      }
+    };
+
+    getUser();
+  }, []);
+
+  useEffect(() => {
+    setTimeout(() => setLoginError(false), 2000);
+  }, [loginError]);
+
+  const logIn = (e: FormEvent) => {
+    e.preventDefault();
+    axios
+      .post('https://eatflavor-bd.herokuapp.com/login', {
+        email,
+        password
+      })
+      .then(r => {
+        localStorage.setItem('user', r.data);
+        checkNavigation(r.data);
+      })
+      .catch(() => setLoginError(true));
+  };
+
   return (
     <Container
       fluid
       style={{ width: '100vw', height: '100vh' }}
       className="d-flex justify-content-center"
     >
+      <Modal show={loginError}>
+        <Modal.Body>Email ou senha inválidos</Modal.Body>
+      </Modal>
+
       <Image
         src={logo}
         style={{ width: '138px', height: '138px', left: '80px', top: '50px' }}
@@ -36,13 +89,15 @@ function Login() {
                     </Card.Title>
                   </Row>
                   <Row>
-                    <Form>
+                    <Form onSubmit={e => logIn(e)}>
                       <Form.Group
                         className="my-4 mx-2 col-12"
                         controlId="formBasicEmail"
                       >
                         <Form.Label>Email</Form.Label>
                         <Form.Control
+                          value={email}
+                          onChange={({ target }) => setEmail(target.value)}
                           type="email"
                           placeholder="seu@email.com"
                         />
@@ -53,7 +108,12 @@ function Login() {
                         controlId="formBasicPassword"
                       >
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="********" />
+                        <Form.Control
+                          value={password}
+                          onChange={({ target }) => setPassword(target.value)}
+                          type="password"
+                          placeholder="********"
+                        />
                       </Form.Group>
 
                       <Button
