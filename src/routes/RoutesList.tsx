@@ -1,5 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Login from '../pages/Login';
+import Products from '../pages/Products';
 import Register from '../pages/Register';
 // import UserRoutes from './routes/UserRoutes';
 
@@ -9,8 +10,8 @@ function RoutesList() {
       <Route path="/" element={<Navigate to="/login" />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/user">
-        <Route path="products" element={<Login />} />
+      <Route path="/user" element={<Products />}>
+        <Route path="products" />
         <Route path="orders" />
         <Route path=":order/track" />
       </Route>
