@@ -1,10 +1,11 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
+import Login from './pages/Login';
 
 function RoutesList() {
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/login" />} />
-      <Route path="/login" />
+      <Route path="/login" element={<Login />} />
       <Route path="/register" />
       <Route path="/products" />
       <Route path="/orders" />
