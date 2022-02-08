@@ -7,12 +7,12 @@ import {
   Button,
   Image
 } from 'react-bootstrap';
-import { useNavigate } from 'react-router';
+// import { useNavigate } from 'react-router';
 import image from '../../images/lily-banse--YHSwy6uqvk-unsplash.jpg';
 import logo from '../../images/eat_Flavor-black.png';
 
 function Register() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   return (
     <Container
       fluid
@@ -32,11 +32,19 @@ function Register() {
                 <Card.Body className="h-100">
                   <Row>
                     <Card.Title className="mt-4 mb-1 mx-5 col-10">
-                      <h1 className="fw-bold">Faça Login!</h1>
+                      <h1 className="fw-bold">Registre-se!</h1>
                     </Card.Title>
                   </Row>
                   <Row>
                     <Form>
+                      <Form.Group
+                        className="my-4 mx-2 col-12"
+                        controlId="formBasicPassword"
+                      >
+                        <Form.Label>Nome</Form.Label>
+                        <Form.Control type="text" placeholder="Seu Nome" />
+                      </Form.Group>
+
                       <Form.Group
                         className="my-4 mx-2 col-12"
                         controlId="formBasicEmail"
@@ -61,7 +69,7 @@ function Register() {
                         type="submit"
                         className="my-3 mx-2 col-12"
                       >
-                        Login
+                        Registrar
                       </Button>
                     </Form>
                   </Row>
