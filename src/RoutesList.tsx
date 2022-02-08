@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 
-function Router() {
+function RoutesList() {
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/login" />} />
@@ -15,4 +15,4 @@ function Router() {
   );
 }
 
-export default Router;
+export default RoutesList;
