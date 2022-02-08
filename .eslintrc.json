@@ -35,6 +35,7 @@
       "@typescript-eslint/default-param-last": "off",
       "react/function-component-definition": "off",
       "no-underscore-dangle": "off",
-      "import/no-cycle": [0, { "ignoreExternal": true }]
+      "import/no-cycle": [0, { "ignoreExternal": true }],
+      "no-console": "off"
   }
 }

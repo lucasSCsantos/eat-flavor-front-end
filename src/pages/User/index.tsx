@@ -36,7 +36,7 @@ function Products() {
               <BsBagFill
                 size={40}
                 className="text-dark"
-                onClick={() => setShow(true)}
+                onClick={() => setShow(!show)}
               />
             </Nav.Link>
             <Nav.Link>

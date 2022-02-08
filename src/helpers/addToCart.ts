@@ -5,7 +5,8 @@ export default (product: ProductType) => {
   try {
     if (localStorage && localStorage.checkout) {
       const storage = JSON.parse(localStorage.checkout);
-      const exists = storage.find(
+      const { products } = storage;
+      const exists = products.find(
         (item: ProductType) => item._id === product._id
       );
 
@@ -13,20 +14,29 @@ export default (product: ProductType) => {
         exists.cont += 1;
         localStorage.setItem(
           'checkout',
-          JSON.stringify([
-            ...storage.slice(0, storage.indexOf(exists)),
-            exists,
-            ...storage.slice(storage.indexOf(exists) + 1)
-          ])
+          JSON.stringify({
+            total: storage.total + productToAdd.price,
+            products: [
+              ...products.slice(0, products.indexOf(exists)),
+              exists,
+              ...products.slice(products.indexOf(exists) + 1)
+            ]
+          })
         );
       } else {
         localStorage.setItem(
           'checkout',
-          JSON.stringify([...storage, productToAdd])
+          JSON.stringify({
+            total: storage.total + productToAdd.price,
+            products: [...products, productToAdd]
+          })
         );
       }
     } else {
-      localStorage.setItem('checkout', JSON.stringify([productToAdd]));
+      localStorage.setItem(
+        'checkout',
+        JSON.stringify({ total: productToAdd.price, products: [productToAdd] })
+      );
     }
   } catch (err) {
     console.error(err);

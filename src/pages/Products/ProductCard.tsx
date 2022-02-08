@@ -13,6 +13,7 @@ export type ProductType = {
   price: number;
   url_image: string;
   _id: string;
+  cont?: number;
 };
 
 function ProductCard({ product }: ProductCardProps) {
