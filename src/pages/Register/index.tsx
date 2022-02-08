@@ -5,7 +5,8 @@ import {
   Form,
   Row,
   Button,
-  Image
+  Image,
+  Spinner
 } from 'react-bootstrap';
 import { useNavigate } from 'react-router';
 import { FormEvent, useEffect, useState } from 'react';
@@ -19,6 +20,7 @@ function Register() {
   const [name, setName] = useState('');
   const navigate = useNavigate();
   const [registerError, setRegisterError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setTimeout(() => setRegisterError(false), 2000);
@@ -26,6 +28,7 @@ function Register() {
 
   const signOn = (e: FormEvent) => {
     e.preventDefault();
+    setLoading(true);
     axios
       .post('https://eatflavor-bd.herokuapp.com/register', {
         name,
@@ -36,6 +39,7 @@ function Register() {
         localStorage.setItem('user', JSON.stringify(r.data));
         navigate('/products');
       })
+      .then(() => setLoading(false))
       .catch(() => setRegisterError(true));
   };
 
@@ -91,7 +95,7 @@ function Register() {
 
                       <Form.Group
                         className="my-3 mx-2 col-12"
-                        controlId="formBasicPassword"
+                        controlId="formBasicName"
                       >
                         <Form.Label>Password</Form.Label>
                         <Form.Control
@@ -125,6 +129,16 @@ function Register() {
               </Col>
             </Row>
           </Card>
+          {loading && (
+            <Spinner
+              animation="border"
+              role="status"
+              className="position-absolute"
+              style={{ bottom: '150px' }}
+            >
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+          )}
         </Col>
       </Row>
     </Container>

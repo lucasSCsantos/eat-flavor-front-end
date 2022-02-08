@@ -6,7 +6,8 @@ import {
   Row,
   Button,
   Image,
-  Modal
+  Modal,
+  Spinner
 } from 'react-bootstrap';
 import { useNavigate } from 'react-router';
 import { FormEvent, useEffect, useState } from 'react';
@@ -19,6 +20,7 @@ function Login() {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [loginError, setLoginError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const checkNavigation = (data: { email: string }) => {
     if (data.email === 'admin@admin.com') navigate('/admin/orders');
@@ -54,6 +56,7 @@ function Login() {
 
   const logIn = (e: FormEvent) => {
     e.preventDefault();
+    setLoading(true);
     axios
       .post('https://eatflavor-bd.herokuapp.com/login', {
         email,
@@ -63,6 +66,7 @@ function Login() {
         localStorage.setItem('user', JSON.stringify(r.data));
         checkNavigation(r.data);
       })
+      .then(() => setLoading(false))
       .catch(() => setLoginError(true));
   };
 
@@ -152,6 +156,16 @@ function Login() {
               </Col>
             </Row>
           </Card>
+          {loading && (
+            <Spinner
+              animation="border"
+              role="status"
+              className="position-absolute"
+              style={{ bottom: '150px' }}
+            >
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+          )}
         </Col>
       </Row>
     </Container>
