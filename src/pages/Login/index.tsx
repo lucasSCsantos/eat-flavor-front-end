@@ -76,7 +76,7 @@ function Login() {
                   </Row>
                 </Card.Body>
               </Col>
-              <Col className="p-0">
+              <Col>
                 <div
                   style={{
                     backgroundImage: `url(${image})`,
