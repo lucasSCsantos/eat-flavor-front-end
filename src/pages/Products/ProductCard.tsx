@@ -1,15 +1,8 @@
 import { Badge, Button, Card, Col, Row } from 'react-bootstrap';
-// import image from '../../images/joseph-gonzalez-fdlZBWIP0aM-unsplash.jpg';
+import addToCart from '../../helpers/addToCart';
 
 interface ProductCardProps {
-  product: {
-    category: string;
-    description: string;
-    type: string;
-    name: string;
-    price: number;
-    url_image: string;
-  };
+  product: ProductType;
 }
 
 export type ProductType = {
@@ -19,6 +12,7 @@ export type ProductType = {
   name: string;
   price: number;
   url_image: string;
+  _id: string;
 };
 
 function ProductCard({ product }: ProductCardProps) {
@@ -52,7 +46,11 @@ function ProductCard({ product }: ProductCardProps) {
             </h3>
           </Col>
           <Col>
-            <Button variant="success" className="w-100 h-100">
+            <Button
+              variant="success"
+              className="w-100 h-100"
+              onClick={() => addToCart(product)}
+            >
               Adicionar
             </Button>
           </Col>
