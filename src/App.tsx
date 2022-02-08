@@ -1,9 +1,10 @@
 import { BrowserRouter } from 'react-router-dom';
+import RoutesList from './RoutesList';
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="App" />;
+      <RoutesList />
     </BrowserRouter>
   );
 }
