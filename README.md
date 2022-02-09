@@ -14,12 +14,12 @@
   <img alt="About" src="https://i.imgur.com/ubGUpZq.gif" width="400" />
 </h1>
 
-## :page_with_curl: Sobre
+# :page_with_curl: Sobre
 
 A PokedexApp é um app de [Pokedex](https://pokemon.fandom.com/wiki/Pok%C3%A9dex) e tem as funções de listar, pesquisar e ver detalhes de um Pokemon.
 Este app foi feito como teste técnico para a empresa [OnBank](https://onbank.com.br/) utilizando da [PokéAPI](https://pokeapi.co/). 
 
-## 🔧 Recursos
+# 🔧 Recursos
 
 - Buscar pokemons e outros detalhes da [PokéAPI](https://pokeapi.co/)
 - Listar pokemons (151 originais)
@@ -27,7 +27,7 @@ Este app foi feito como teste técnico para a empresa [OnBank](https://onbank.co
 - Ver detalhes de um pokemon (Pokedex Data e Stats)
 - Navegar entre as telas Home e About (Detalhes de pokemon)
 
-## :hammer: Tecnologias
+# :hammer: Tecnologias
 
 Esse projeto foi desenvolvido com:
 
