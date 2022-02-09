@@ -10,8 +10,8 @@
 </p>
 
 <h1 align="center">
-  <img alt="Home" src="hhttps://i.imgur.com/ss17zDa.gif"/>
-  <img alt="About" src="https://i.imgur.com/ubGUpZq.gif" width="400" />
+  <img alt="User" src="https://i.imgur.com/ss17zDa.gif"/>
+  <!-- <img alt="About" src="https://i.imgur.com/ubGUpZq.gif" width="400" /> -->
 </h1>
 
 # 🎉 Apresentação
