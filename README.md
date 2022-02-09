@@ -10,7 +10,7 @@
 </p>
 
 <h1 align="center">
-  <img alt="Home" src="hhttps://i.imgur.com/ss17zDa.gif" width="444" />
+  <img alt="Home" src="hhttps://i.imgur.com/ss17zDa.gif"/>
   <img alt="About" src="https://i.imgur.com/ubGUpZq.gif" width="400" />
 </h1>
 
