@@ -20,7 +20,7 @@ A EatFlavor é uma empresa de delivery com uma proposta inovadora, ter uma únic
 
 # :page_with_curl: Sobre
 
-Essa aplicação foi desenvolvida como prova técnica full-stack para a empresa EatTasty e este é o repositório front-end, o back-end você encontra em: https://github.com/lucasSCsantos/eat-flavor-back-end. No primeiro momento foi feito o design com [Figma]() utilizando o UI kit do react bootstrap. A aplicação foi desenvolvida com o framework [React]() e [TypeScript]() e contem dois fluxos: Usuário e Administrador. O usuário pode escolher produtos, fazer o checkout e acompanhar seus pedidos e o administrador pode acompanhar e atualizar o status de todos os pedidos. O sistema de roteamento foi desenvolvido com [React Router]() e toda estilização das páginas feitas com [React Bootstrap]().
+Essa aplicação foi desenvolvida como prova técnica full-stack para a empresa EatTasty e este é o repositório front-end, o back-end você encontra em: https://github.com/lucasSCsantos/eat-flavor-back-end. No primeiro momento foi feito o design com [Figma](https://www.figma.com/) utilizando o UI kit do react bootstrap. A aplicação foi desenvolvida com o framework [React](https://pt-br.reactjs.org/) e [TypeScript](https://www.typescriptlang.org/) e contem dois fluxos: Usuário e Administrador. O usuário pode escolher produtos, fazer o checkout e acompanhar seus pedidos e o administrador pode acompanhar e atualizar o status de todos os pedidos. O sistema de roteamento foi desenvolvido com [React Router](https://reactrouter.com/) e toda estilização das páginas feitas com [React Bootstrap](https://reactrouter.com/).
 
 # 🔧 Recursos
 
@@ -40,15 +40,20 @@ Essa aplicação foi desenvolvida como prova técnica full-stack para a empresa 
 - Acompanhar e atualizar status de cada pedido
 - Fazer logout
 
+
+# ⏭ Próximos Passos
+
+- Utilizar socket.io para atualização em tempo real
+
 # :hammer: Tecnologias
 
 Esse projeto foi desenvolvido com:
 
-- [React](https://reactnative.dev/)
+- [React](https://pt-br.reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
-- [React Router](https://reactnavigation.org/)
-- [React Bootstrap](https://styled-components.com/)
-- [Moment](https://styled-components.com/)
+- [React Router](https://reactrouter.com/)
+- [React Bootstrap](https://react-bootstrap.github.io/)
+- [Moment](https://momentjs.com/)
 - [ESLint](https://eslint.org/)
 
 # :arrow_down: Instalação
@@ -68,4 +73,4 @@ Esse projeto foi desenvolvido com:
   # Depois disso pelo app Expo Go, escaneie o QR code exibido no terminal
 ```
 
-### [Aplicação]() e [Design]() desenvolvidos por [Lucas Santana](https://github.com/lucasSCsantos) com ❤
+### [Aplicação](https://eatflavor-fd.herokuapp.com/ ) e [Design](https://www.figma.com/file/v70HYO7pl06I1KdHyRl3ou/EatFlavor) desenvolvidos por [Lucas Santana](https://github.com/lucasSCsantos) com ❤
