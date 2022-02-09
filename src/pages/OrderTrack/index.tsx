@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Badge, Button, Col, Container, Row } from 'react-bootstrap';
+import { Badge, Button, Col, Container, Row, Spinner } from 'react-bootstrap';
 import { useParams } from 'react-router';
 import checkStatus, { StatusDataType } from '../../helpers/checkStatus';
 import orderMock from '../../mocks/orderMock';
@@ -26,26 +26,29 @@ function OrderTrack() {
   const [disabled, setDisabled] = useState(true);
   const [reload, setReload] = useState(false);
   const [delivered, setDelivered] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     try {
+      setLoading(true);
       const { token } = JSON.parse(localStorage.user);
-
       axios
         .get(`https://eatflavor-bd.herokuapp.com/sales/${id}`, {
           headers: { authorization: token }
         })
         .then(r => {
           setOrder(r.data);
+          setLoading(false);
         })
-        .catch(() => console.log('erro'));
+        .catch(() => setLoading(false));
     } catch (err) {
-      console.error(err);
+      setLoading(false);
     }
   }, [reload]);
 
   useEffect(() => {
     const data = checkStatus(order.status);
+    if (order.status === 'delivered') setDelivered(true);
     setStatusData(data);
   }, [order]);
 
@@ -67,6 +70,7 @@ function OrderTrack() {
         .then(() => {
           setDelivered(true);
           setReload(!reload);
+          window.location.reload();
         })
         .catch(() => console.log('erro'));
     } catch (err) {
@@ -76,7 +80,7 @@ function OrderTrack() {
 
   return (
     <Container fluid="lg" className="d-grid" style={{ height: '866px' }}>
-      {order.address && (
+      {!loading ? (
         <Row className="w-100 mt-5 m-auto" style={{ height: '50vh' }}>
           <Row className="m-auto h-25">
             <h1 className="fw-bold mb-4">Pedido #{id && id.slice(0, 8)}</h1>
@@ -115,6 +119,15 @@ function OrderTrack() {
             </Row>
           </Row>
         </Row>
+      ) : (
+        <Spinner
+          animation="border"
+          role="status"
+          className="m-auto"
+          style={{ width: '10rem', height: '10rem' }}
+        >
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
       )}
     </Container>
   );

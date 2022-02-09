@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { Container, Row, Spinner } from 'react-bootstrap';
 import { OrderType } from '../OrderTrack';
 import SaleCard from './SaleCard';
 
 function Orders() {
+  const [loading, setLoading] = useState(true);
   const [sales, setSales] = useState([]);
 
   useEffect(() => {
@@ -13,16 +14,17 @@ function Orders() {
       const getUserSales = (array: Array<OrderType>) =>
         array.filter(arr => arr.user_id === id);
 
+      setLoading(true);
       axios
         .get('https://eatflavor-bd.herokuapp.com/sales', {
           headers: { authorization: token }
         })
         .then(r => {
           const salesList = getUserSales(r.data.sales);
-          console.log(salesList);
           setSales(salesList as never[]);
+          setLoading(false);
         })
-        .catch(() => console.log('erro'));
+        .catch(() => setLoading(false));
     } catch (err) {
       console.error(err);
     }
@@ -37,9 +39,20 @@ function Orders() {
           className="m-auto d-flex justify-content-between"
           style={{ height: '90%' }}
         >
-          {sales.map((sale: OrderType) => (
-            <SaleCard sale={sale} key={sale._id} />
-          ))}
+          {!loading ? (
+            sales.map((sale: OrderType) => (
+              <SaleCard sale={sale} key={sale._id} />
+            ))
+          ) : (
+            <Spinner
+              animation="border"
+              role="status"
+              className="m-auto"
+              style={{ width: '10rem', height: '10rem' }}
+            >
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+          )}
         </Row>
       </Row>
     </Container>

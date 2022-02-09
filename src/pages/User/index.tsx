@@ -64,7 +64,14 @@ function User() {
               />
             </Nav.Link>
             <Nav.Link>
-              <BsBoxArrowRight size={40} className="text-dark" />
+              <BsBoxArrowRight
+                size={40}
+                className="text-dark"
+                onClick={() => {
+                  localStorage.removeItem('user');
+                  window.location.reload();
+                }}
+              />
             </Nav.Link>
           </Nav>
         </Container>

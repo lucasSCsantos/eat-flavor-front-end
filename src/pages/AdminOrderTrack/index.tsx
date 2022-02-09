@@ -50,6 +50,7 @@ function AdminOrderTrack() {
         )
         .then(() => {
           setReload(!reload);
+          window.location.reload();
         })
         .catch(() => console.log('erro'));
     } catch (err) {

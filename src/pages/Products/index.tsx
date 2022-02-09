@@ -1,13 +1,15 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { Container, Row, Spinner } from 'react-bootstrap';
 import ProductCard, { ProductType } from './ProductCard';
 
 function Products() {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     try {
+      setLoading(true);
       let token = '';
       if (localStorage && localStorage.user) {
         token = JSON.parse(localStorage.user).token;
@@ -19,10 +21,11 @@ function Products() {
         })
         .then(r => {
           setProducts(r.data.products);
+          setLoading(false);
         })
-        .catch(() => console.log('erro'));
+        .catch(() => setLoading(false));
     } catch (err) {
-      console.error(err);
+      setLoading(false);
     }
   }, []);
 
@@ -36,9 +39,20 @@ function Products() {
           className="m-auto d-flex justify-content-between"
           style={{ height: '90%' }}
         >
-          {products.map((product: ProductType) => (
-            <ProductCard product={product} key={product.name} />
-          ))}
+          {!loading ? (
+            products.map((product: ProductType) => (
+              <ProductCard product={product} key={product.name} />
+            ))
+          ) : (
+            <Spinner
+              animation="border"
+              role="status"
+              className="m-auto"
+              style={{ width: '10rem', height: '10rem' }}
+            >
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+          )}
         </Row>
       </Row>
     </Container>
