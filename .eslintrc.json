@@ -1,0 +1,42 @@
+{
+  "env": {
+      "browser": true,
+      "es2021": true,
+      "node": true,
+      "jest": true
+  },
+  "extends": [
+      "plugin:react/recommended",
+      "airbnb",
+      "airbnb-typescript",
+      "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+      "project": "tsconfig.json",
+      "tsconfigRootDir": "./",
+      "ecmaFeatures": {
+      "jsx": true
+      },
+      "ecmaVersion": 12,
+      "sourceType": "module"
+  },
+  "plugins": [
+      "react",
+      "@typescript-eslint",
+      "prettier"
+  ],
+  "rules": {
+      "react/jsx-props-no-spreading": "off",
+      "react/react-in-jsx-scope": "off",
+      "prettier/prettier": "error",
+      "space-before-function-paren": "off",
+      "react/prop-types": "off",
+      "@typescript-eslint/default-param-last": "off",
+      "react/function-component-definition": "off",
+      "no-underscore-dangle": "off",
+      "import/no-cycle": [0, { "ignoreExternal": true }],
+      "no-console": "off",
+      "react/no-unstable-nested-components": "off"
+  }
+}

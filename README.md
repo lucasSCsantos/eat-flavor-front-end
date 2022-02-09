@@ -1,46 +1,80 @@
-# Getting Started with Create React App
+<h1 align="center">
+  <img alt="Logo" src="https://i.imgur.com/lY7ZWok.png" width="250px" />
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/lucasSCsantos/eat-flavor-front-end">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/lucasSCsantos/eat-flavor-front-end">
+  <img alt="Stars" src="https://img.shields.io/github/stars/lucasSCsantos/eat-flavor-front-end">
+  <img alt="Repository Size" src="https://img.shields.io/github/repo-size/lucasSCsantos/eat-flavor-front-end">
+</p>
 
-## Available Scripts
+<h1 align="center">
+  <img alt="Login" src="https://i.imgur.com/kf3d2m7.png"/>
+</h1>
 
-In the project directory, you can run:
+# 🎉 Apresentação
 
-### `npm start`
+A EatFlavor é uma empresa de delivery com uma proposta inovadora, ter uma única opção de menu durante uma semana inteira. Na era que vivemos somos acostumados a ter tantas opções que muitas vezes não conseguimos escolher. Isso acontece com filmes, delivery e etc... Por isso nós surgimos com o propósito de trazer de volta épocas mais simples. No nosso app, após fazer o cadastro, você só terá uma opção de prato principal, bebida e sobremesa, escolhidos com muito carinho pelo nosso chefe. EatFlavor não é só um app de delivery, é também uma experiencia gastronômica para toda a família. Venha desfrutar desse sabor, registre-se agora em: https://eatflavor-fd.herokuapp.com/ 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# :page_with_curl: Sobre
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Essa aplicação foi desenvolvida como prova técnica full-stack para a empresa EatTasty e este é o repositório front-end, o back-end você encontra em: https://github.com/lucasSCsantos/eat-flavor-back-end. No primeiro momento foi feito o design com [Figma](https://www.figma.com/) utilizando o UI kit do react bootstrap. A aplicação foi desenvolvida com o framework [React](https://pt-br.reactjs.org/) e [TypeScript](https://www.typescriptlang.org/) e contem dois fluxos: Usuário e Administrador. O usuário pode escolher produtos, fazer o checkout e acompanhar seus pedidos e o administrador pode acompanhar e atualizar o status de todos os pedidos. O sistema de roteamento foi desenvolvido com [React Router](https://reactrouter.com/) e toda estilização das páginas feitas com [React Bootstrap](https://reactrouter.com/).
 
-### `npm test`
+# 🔧 Recursos
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img alt="User" src="https://i.imgur.com/elzKOPi.gif"/>
 
-### `npm run build`
+### Usuário
+- Registrar novo usuário
+- Logar como usuário
+- Ver produtos e adicionar ao carrinho
+- Fazer checkout do carrinho de compras
+- Acompanhar pedido
+- Confirmar entrega
+- Listar todos os pedidos do usuário
+- Fazer logout
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Administrador
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img alt="Admin" src="https://i.imgur.com/TmNn88r.gif"/>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Logar como administrador
+- Listar todos os pedidos
+- Acompanhar e atualizar status de cada pedido
+- Fazer logout
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# ⏭ Próximos Passos
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Utilizar socket.io para atualização em tempo real
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# :hammer: Tecnologias
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Esse projeto foi desenvolvido com:
 
-## Learn More
+- [React](https://pt-br.reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [React Router](https://reactrouter.com/)
+- [React Bootstrap](https://react-bootstrap.github.io/)
+- [Moment](https://momentjs.com/)
+- [ESLint](https://eslint.org/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# :arrow_down: Instalação
+``` bash
+  # Clone o repositório:
+  $ https://github.com/lucasSCsantos/eat-flavor-front-end
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  # Entrar no diretório:
+  $ cd eat-flavor-front-end
+  
+  # Instale as dependencias:
+  $ yarn
+  
+  # Inicie o app:
+  $ yarn start
+  
+  # Depois disso pelo app Expo Go, escaneie o QR code exibido no terminal
+```
+
+### [Aplicação](https://eatflavor-fd.herokuapp.com/ ) e [Design](https://www.figma.com/file/v70HYO7pl06I1KdHyRl3ou/EatFlavor) desenvolvidos por [Lucas Santana](https://github.com/lucasSCsantos) com ❤
