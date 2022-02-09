@@ -14,10 +14,13 @@
   <img alt="About" src="https://i.imgur.com/ubGUpZq.gif" width="400" />
 </h1>
 
+# :page_with_curl: Apresentação
+
+A EatFlavor é uma empresa de delivery com uma proposta inovadora, ter uma única opção de menu durante uma semana inteira. Na era que vivemos somos acostumados a ter tantas opções que muitas vezes não conseguimos escolher. Isso acontece com filmes, delivery e etc... Por isso nós surgimos com o propósito de trazer de volta épocas mais simples. No nosso app, após fazer o cadastro, você só terá uma opção de prato principal, bebida e sobremesa, escolhidos com muito carinho pelo nosso chefe. EatFlavor não é só um app de delivery, é também uma experiencia gastronômica para toda a família. Venha desfrutar desse sabor, registre-se agora em: https://eatflavor-fd.herokuapp.com/ 
+
 # :page_with_curl: Sobre
 
-A PokedexApp é um app de [Pokedex](https://pokemon.fandom.com/wiki/Pok%C3%A9dex) e tem as funções de listar, pesquisar e ver detalhes de um Pokemon.
-Este app foi feito como teste técnico para a empresa [OnBank](https://onbank.com.br/) utilizando da [PokéAPI](https://pokeapi.co/). 
+Essa aplicação foi desenvolvida como prova técnica full-stack para a empresa EatTasty e este é o repositório front-end, o back-end você encontra em: https://github.com/lucasSCsantos/eat-flavor-back-end. A aplicação foi desenvolvido com o framework [React]() e [TypeScript]() e contem dois fluxos: Usuário e Administrador. O usuário pode escolher produtos, fazer o checkout e acompanhar seus pedidos e o administrador pode acompanhar e atualizar o status de todos os pedidos.
 
 # 🔧 Recursos
 
