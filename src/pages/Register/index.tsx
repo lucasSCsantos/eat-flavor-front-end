@@ -54,7 +54,9 @@ function Register() {
       className="d-flex justify-content-center"
     >
       <Modal show={registerError}>
-        <Modal.Body>Email ou senha inválidos</Modal.Body>
+        <Modal.Body>
+          Email ou senha inválidos, a senha precisa ter pelo menos 6 caracteres
+        </Modal.Body>
       </Modal>
 
       <Image
@@ -64,7 +66,10 @@ function Register() {
       />
       <Row className="w-100">
         <Col className="w-50 d-flex justify-content-center">
-          <Card className="h-50 w-50 align-self-center text-center overflow-hidden shadow border-none">
+          <Card
+            className="w-50 align-self-center text-center overflow-hidden shadow border-none"
+            style={{ height: '498px' }}
+          >
             <Row className="h-100">
               <Col className="">
                 <Card.Body className="h-100">
