@@ -92,7 +92,7 @@ function Checkout({ show, onHide }: CheckoutProps) {
     <>
       <Modal show={checkoutError}>
         <Modal.Body>
-          Não foi possível concluir a compra, confira seu endereço e produtos
+          Não foi possível concluir a compra, confira sua morada e produtos
         </Modal.Body>
       </Modal>
       <Offcanvas
@@ -117,7 +117,7 @@ function Checkout({ show, onHide }: CheckoutProps) {
             <Row className="h-50 p-0 m-auto">
               <Form>
                 <Form.Group>
-                  <Form.Label>Endereço</Form.Label>
+                  <Form.Label>Morada</Form.Label>
                   <Form.Control
                     value={address}
                     onChange={({ target }) => setAddress(target.value)}
@@ -128,7 +128,7 @@ function Checkout({ show, onHide }: CheckoutProps) {
               </Form>
             </Row>
             <Row className="h-50 m-auto">
-              <h2 className="fw-bold">Total: € {total.toFixed(2)}</h2>
+              <h2 className="fw-bold">Total: € {+total.toFixed(2)}</h2>
               <Button variant="success" onClick={() => checkOut()}>
                 Finalizar compra
               </Button>

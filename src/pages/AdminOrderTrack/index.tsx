@@ -1,7 +1,7 @@
 import axios from 'axios';
 import moment from 'moment';
 import { useEffect, useState } from 'react';
-import { Badge, Button, Container, Row, Table } from 'react-bootstrap';
+import { Badge, Button, Container, Row, Spinner, Table } from 'react-bootstrap';
 import { useParams } from 'react-router';
 import checkStatus, { StatusDataType } from '../../helpers/checkStatus';
 import orderMock from '../../mocks/orderMock';
@@ -15,20 +15,23 @@ function AdminOrderTrack() {
     color: ''
   });
   const [reload, setReload] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     try {
       const { token } = JSON.parse(localStorage.user);
+      setLoading(true);
       axios
         .get(`https://eatflavor-bd.herokuapp.com/sales/${id}`, {
           headers: { authorization: token }
         })
         .then(r => {
           setOrder(r.data);
+          setLoading(false);
         })
-        .catch(() => console.log('erro'));
+        .catch(() => setLoading(false));
     } catch (err) {
-      console.error(err);
+      setLoading(false);
     }
   }, [reload]);
 
@@ -103,7 +106,7 @@ function AdminOrderTrack() {
 
   return (
     <Container fluid="lg" className="d-grid" style={{ height: '866px' }}>
-      {order.address && (
+      {!loading ? (
         <Row className="w-100 mt-5 m-auto" style={{ height: '80vh' }}>
           <Row className="m-auto h-25">
             <h1 className="fw-bold mb-4">
@@ -151,6 +154,15 @@ function AdminOrderTrack() {
             <Row className="w-100 justify-content-end">{renderSwitch()}</Row>
           </Row>
         </Row>
+      ) : (
+        <Spinner
+          animation="border"
+          role="status"
+          className="m-auto"
+          style={{ width: '10rem', height: '10rem' }}
+        >
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
       )}
     </Container>
   );

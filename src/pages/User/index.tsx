@@ -14,6 +14,7 @@ import Checkout from './Checkout';
 function User() {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
+  const [total, setTotal] = useState(0);
   useEffect(() => {
     const validateToken = async (token: string) => {
       const isValid = await axios
@@ -36,11 +37,25 @@ function User() {
 
     getUser();
   }, [navigate]);
+
+  useEffect(() => {
+    try {
+      const loggedUser = JSON.parse(localStorage.user);
+      const checkout = JSON.parse(localStorage[`checkout_${loggedUser.email}`]);
+      const quant = checkout.products.reduce(
+        (acc: number, curr: { cont: number }) => acc + curr.cont,
+        0
+      );
+      if (checkout) setTotal(quant);
+    } catch (err) {
+      console.error(err);
+    }
+  }, []);
   return (
     <>
       <Navbar bg="white" expand="lg" className="shadow-sm">
         <Container>
-          <Navbar.Brand href="/">
+          <Navbar.Brand href="/users/products">
             <img
               src={logo}
               width="80"
@@ -56,7 +71,19 @@ function User() {
             <Nav.Link href="/user/orders">
               <BsReceipt size={40} className="text-dark" />
             </Nav.Link>
-            <Nav.Link>
+            <Nav.Link className="position-relative">
+              <div
+                className="bg-success rounded-circle text-center"
+                style={{
+                  width: '30px',
+                  height: '30px',
+                  position: 'absolute',
+                  top: '30px',
+                  left: '-5px'
+                }}
+              >
+                <h4>{total}</h4>
+              </div>
               <BsBagFill
                 size={40}
                 className="text-dark"

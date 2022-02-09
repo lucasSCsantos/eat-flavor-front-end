@@ -50,7 +50,10 @@ function ProductCard({ product }: ProductCardProps) {
             <Button
               variant="success"
               className="w-100 h-100"
-              onClick={() => addToCart(product)}
+              onClick={() => {
+                addToCart(product);
+                window.location.reload();
+              }}
             >
               Adicionar
             </Button>

@@ -35,7 +35,7 @@ function Admin() {
     <>
       <Navbar bg="white" expand="lg" className="shadow-sm">
         <Container>
-          <Navbar.Brand href="/">
+          <Navbar.Brand href="/admin/orders">
             <img
               src={logo}
               width="80"
