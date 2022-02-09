@@ -25,7 +25,7 @@ function SaleCard({ sale }: SaleCardProps) {
 
   return (
     <Card
-      style={{ width: '38rem', height: 'fit-content' }}
+      style={{ width: '38rem', height: '11.2rem' }}
       className="p-0 shadow-sm mb-4"
     >
       <Link
@@ -48,8 +48,6 @@ function SaleCard({ sale }: SaleCardProps) {
                   {moment(sale.sale_date).format('DD/MM/YYYY')}
                 </h4>
               </Col>
-
-              {/* <Card.Text className="h-75">{product.description}</Card.Text> */}
             </Row>
 
             <Row className="h-50">

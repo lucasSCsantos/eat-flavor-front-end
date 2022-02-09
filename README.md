@@ -10,45 +10,63 @@
 </p>
 
 <h1 align="center">
-  <img alt="Home" src="https://i.imgur.com/KcNSlO4.gif" width="400" />
-  <img alt="About" src="https://i.imgur.com/ubGUpZq.gif" width="400" />
+  <img alt="Login" src="https://i.imgur.com/kf3d2m7.png"/>
 </h1>
 
-## :page_with_curl: Sobre
+# 🎉 Apresentação
 
-A PokedexApp é um app de [Pokedex](https://pokemon.fandom.com/wiki/Pok%C3%A9dex) e tem as funções de listar, pesquisar e ver detalhes de um Pokemon.
-Este app foi feito como teste técnico para a empresa [OnBank](https://onbank.com.br/) utilizando da [PokéAPI](https://pokeapi.co/). 
+A EatFlavor é uma empresa de delivery com uma proposta inovadora, ter uma única opção de menu durante uma semana inteira. Na era que vivemos somos acostumados a ter tantas opções que muitas vezes não conseguimos escolher. Isso acontece com filmes, delivery e etc... Por isso nós surgimos com o propósito de trazer de volta épocas mais simples. No nosso app, após fazer o cadastro, você só terá uma opção de prato principal, bebida e sobremesa, escolhidos com muito carinho pelo nosso chefe. EatFlavor não é só um app de delivery, é também uma experiencia gastronômica para toda a família. Venha desfrutar desse sabor, registre-se agora em: https://eatflavor-fd.herokuapp.com/ 
 
-## 🔧 Recursos
+# :page_with_curl: Sobre
 
-- Buscar pokemons e outros detalhes da [PokéAPI](https://pokeapi.co/)
-- Listar pokemons (151 originais)
-- Pesquisar pokemon por nome
-- Ver detalhes de um pokemon (Pokedex Data e Stats)
-- Navegar entre as telas Home e About (Detalhes de pokemon)
+Essa aplicação foi desenvolvida como prova técnica full-stack para a empresa EatTasty e este é o repositório front-end, o back-end você encontra em: https://github.com/lucasSCsantos/eat-flavor-back-end. No primeiro momento foi feito o design com [Figma](https://www.figma.com/) utilizando o UI kit do react bootstrap. A aplicação foi desenvolvida com o framework [React](https://pt-br.reactjs.org/) e [TypeScript](https://www.typescriptlang.org/) e contem dois fluxos: Usuário e Administrador. O usuário pode escolher produtos, fazer o checkout e acompanhar seus pedidos e o administrador pode acompanhar e atualizar o status de todos os pedidos. O sistema de roteamento foi desenvolvido com [React Router](https://reactrouter.com/) e toda estilização das páginas feitas com [React Bootstrap](https://reactrouter.com/).
 
-## :hammer: Tecnologias
+# 🔧 Recursos
+
+<img alt="User" src="https://i.imgur.com/elzKOPi.gif"/>
+
+### Usuário
+- Registrar novo usuário
+- Logar como usuário
+- Ver produtos e adicionar ao carrinho
+- Fazer checkout do carrinho de compras
+- Acompanhar pedido
+- Confirmar entrega
+- Listar todos os pedidos do usuário
+- Fazer logout
+
+### Administrador
+
+<img alt="Admin" src="https://i.imgur.com/TmNn88r.gif"/>
+
+- Logar como administrador
+- Listar todos os pedidos
+- Acompanhar e atualizar status de cada pedido
+- Fazer logout
+
+
+# ⏭ Próximos Passos
+
+- Utilizar socket.io para atualização em tempo real
+
+# :hammer: Tecnologias
 
 Esse projeto foi desenvolvido com:
 
-- [Expo](https://expo.io/)
-- [React Native](https://reactnative.dev/)
+- [React](https://pt-br.reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
-- [React Navigation](https://reactnavigation.org/)
-- [React Native Gesture Handler](https://kmagiera.github.io/react-native-gesture-handler/)
-- [React Native Svg](https://github.com/react-native-svg/react-native-svg)
-- [Redux](https://redux.js.org/)
-- [Styled Components](https://styled-components.com/)
-- [@expo/vector-icons](https://docs.expo.io/guides/icons/)
+- [React Router](https://reactrouter.com/)
+- [React Bootstrap](https://react-bootstrap.github.io/)
+- [Moment](https://momentjs.com/)
 - [ESLint](https://eslint.org/)
 
-## :arrow_down: Instalação
+# :arrow_down: Instalação
 ``` bash
   # Clone o repositório:
-  $ https://github.com/lucasSCsantos/pokedexApp
+  $ https://github.com/lucasSCsantos/eat-flavor-front-end
 
   # Entrar no diretório:
-  $ cd pokedexApp
+  $ cd eat-flavor-front-end
   
   # Instale as dependencias:
   $ yarn
@@ -59,5 +77,4 @@ Esse projeto foi desenvolvido com:
   # Depois disso pelo app Expo Go, escaneie o QR code exibido no terminal
 ```
 
-# :thought_balloon: Inspiração
-- Design inspirado no [Pokedex App design](https://www.behance.net/gallery/95727849/Pokdex-App) feito pelo [Flávio Farias](https://farias.design/).
+### [Aplicação](https://eatflavor-fd.herokuapp.com/ ) e [Design](https://www.figma.com/file/v70HYO7pl06I1KdHyRl3ou/EatFlavor) desenvolvidos por [Lucas Santana](https://github.com/lucasSCsantos) com ❤
