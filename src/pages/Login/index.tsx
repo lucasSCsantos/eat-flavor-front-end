@@ -109,7 +109,7 @@ function Login() {
                         className="my-4 mx-2 col-12"
                         controlId="formBasicEmail"
                       >
-                        <Form.Label>Email</Form.Label>
+                        <Form.Label>Endereço de Email</Form.Label>
                         <Form.Control
                           value={email}
                           onChange={({ target }) => setEmail(target.value)}
@@ -122,7 +122,7 @@ function Login() {
                         className="my-4 mx-2 col-12"
                         controlId="formBasicPassword"
                       >
-                        <Form.Label>Password</Form.Label>
+                        <Form.Label>Palavra-Passe</Form.Label>
                         <Form.Control
                           value={password}
                           onChange={({ target }) => setPassword(target.value)}

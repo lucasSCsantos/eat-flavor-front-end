@@ -97,7 +97,7 @@ function Register() {
                         className="my-3 mx-2 col-12"
                         controlId="formBasicEmail"
                       >
-                        <Form.Label>Email</Form.Label>
+                        <Form.Label>Endereço de Email</Form.Label>
                         <Form.Control
                           value={email}
                           onChange={({ target }) => setEmail(target.value)}
@@ -110,7 +110,7 @@ function Register() {
                         className="my-3 mx-2 col-12"
                         controlId="formBasicName"
                       >
-                        <Form.Label>Password</Form.Label>
+                        <Form.Label>Palavra-Passe</Form.Label>
                         <Form.Control
                           value={password}
                           onChange={({ target }) => setPassword(target.value)}
