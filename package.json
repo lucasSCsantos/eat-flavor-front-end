@@ -29,7 +29,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "readme": "git add . && git commit -m Readme && git psuh"
+    "readme": "git add . && git commit -m Readme && git push"
   },
   "eslintConfig": {
     "extends": [
