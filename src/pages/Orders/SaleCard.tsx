@@ -1,7 +1,7 @@
 import moment from 'moment';
 import { useEffect, useState } from 'react';
 import { Badge, Card, Col, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import checkStatus, { StatusDataType } from '../../helpers/checkStatus';
 import { OrderType } from '../OrderTrack';
 
@@ -15,6 +15,9 @@ function SaleCard({ sale }: SaleCardProps) {
     color: ''
   });
 
+  const { pathname } = useLocation();
+  const role = pathname.includes('admin') ? 'admin' : 'user';
+
   useEffect(() => {
     const data = checkStatus(sale.status);
     setStatusData(data);
@@ -25,7 +28,10 @@ function SaleCard({ sale }: SaleCardProps) {
       style={{ width: '38rem', height: '10rem' }}
       className="p-0 shadow-sm mb-4"
     >
-      <Link to={`/user/${sale._id}/track`} style={{ textDecoration: 'none' }}>
+      <Link
+        to={`/${role}/${sale._id}/track`}
+        style={{ textDecoration: 'none' }}
+      >
         {sale && (
           <Card.Body>
             <Row className="h-50">
@@ -39,7 +45,7 @@ function SaleCard({ sale }: SaleCardProps) {
               </Col>
               <Col className="col-5 text-end">
                 <h4 className="fw-regular text-dark">
-                  {moment(sale.sale_date).format('YYYY/MM/DD')}
+                  {moment(sale.sale_date).format('DD/MM/YYYY')}
                 </h4>
               </Col>
 

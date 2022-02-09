@@ -7,16 +7,23 @@ function Products() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const { token } = JSON.parse(localStorage.user);
+    try {
+      let token = '';
+      if (localStorage && localStorage.user) {
+        token = JSON.parse(localStorage.user).token;
+      }
 
-    axios
-      .get('https://eatflavor-bd.herokuapp.com/products', {
-        headers: { authorization: token }
-      })
-      .then(r => {
-        setProducts(r.data.products);
-      })
-      .catch(() => console.log('erro'));
+      axios
+        .get('https://eatflavor-bd.herokuapp.com/products', {
+          headers: { authorization: token }
+        })
+        .then(r => {
+          setProducts(r.data.products);
+        })
+        .catch(() => console.log('erro'));
+    } catch (err) {
+      console.error(err);
+    }
   }, []);
 
   return (

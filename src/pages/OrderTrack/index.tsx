@@ -28,16 +28,20 @@ function OrderTrack() {
   const [delivered, setDelivered] = useState(false);
 
   useEffect(() => {
-    const { token } = JSON.parse(localStorage.user);
+    try {
+      const { token } = JSON.parse(localStorage.user);
 
-    axios
-      .get(`https://eatflavor-bd.herokuapp.com/sales/${id}`, {
-        headers: { authorization: token }
-      })
-      .then(r => {
-        setOrder(r.data);
-      })
-      .catch(() => console.log('erro'));
+      axios
+        .get(`https://eatflavor-bd.herokuapp.com/sales/${id}`, {
+          headers: { authorization: token }
+        })
+        .then(r => {
+          setOrder(r.data);
+        })
+        .catch(() => console.log('erro'));
+    } catch (err) {
+      console.error(err);
+    }
   }, [reload]);
 
   useEffect(() => {
@@ -50,20 +54,24 @@ function OrderTrack() {
   }, [statusData]);
 
   const confirm = async () => {
-    const { token } = JSON.parse(localStorage.user);
-    axios
-      .put(
-        `https://eatflavor-bd.herokuapp.com/sales/${id}`,
-        {
-          status: 'delivered'
-        },
-        { headers: { authorization: token } }
-      )
-      .then(() => {
-        setDelivered(true);
-        setReload(!reload);
-      })
-      .catch(() => console.log('erro'));
+    try {
+      const { token } = JSON.parse(localStorage.user);
+      axios
+        .put(
+          `https://eatflavor-bd.herokuapp.com/sales/${id}`,
+          {
+            status: 'delivered'
+          },
+          { headers: { authorization: token } }
+        )
+        .then(() => {
+          setDelivered(true);
+          setReload(!reload);
+        })
+        .catch(() => console.log('erro'));
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (

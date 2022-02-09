@@ -30,8 +30,12 @@ function Checkout({ show, onHide }: CheckoutProps) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const { email } = JSON.parse(localStorage.user);
     try {
+      let email = '';
+      if (localStorage && localStorage.user) {
+        email = JSON.parse(localStorage.user).email;
+      }
+
       if (localStorage && localStorage[`checkout_${email}`]) {
         const {
           products: productsList,
@@ -49,33 +53,38 @@ function Checkout({ show, onHide }: CheckoutProps) {
   }, [show]);
 
   const checkOut = () => {
-    const { _id: id, token, email } = JSON.parse(localStorage.user);
-    if (address && products) {
-      setLoading(true);
-      axios
-        .post(
-          'https://eatflavor-bd.herokuapp.com/sales',
-          {
-            address,
-            total_price: total,
-            sale_date: new Date(),
-            status: 'pending',
-            products,
-            user_id: id
-          },
-          { headers: { authorization: token } }
-        )
-        .then(r => {
-          navigate(`/user/${r.data._id}/track`);
-          onHide(false);
-          setLoading(false);
-          localStorage.removeItem(`checkout_${email}`);
-          setAddress('');
-        })
-        .catch(() => console.log('erro'));
-    } else {
-      setCheckoutError(true);
-      setTimeout(() => setCheckoutError(false), 3000);
+    try {
+      const { _id: id, token, email } = JSON.parse(localStorage.user);
+
+      if (address && products) {
+        setLoading(true);
+        axios
+          .post(
+            'https://eatflavor-bd.herokuapp.com/sales',
+            {
+              address,
+              total_price: total,
+              sale_date: new Date(),
+              status: 'pending',
+              products,
+              user_id: id
+            },
+            { headers: { authorization: token } }
+          )
+          .then(r => {
+            navigate(`/user/${r.data._id}/track`);
+            onHide(false);
+            setLoading(false);
+            localStorage.removeItem(`checkout_${email}`);
+            setAddress('');
+          })
+          .catch(() => console.log('erro'));
+      } else {
+        setCheckoutError(true);
+        setTimeout(() => setCheckoutError(false), 3000);
+      }
+    } catch (err) {
+      console.error(err);
     }
   };
 

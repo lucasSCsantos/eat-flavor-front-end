@@ -8,20 +8,24 @@ function Orders() {
   const [sales, setSales] = useState([]);
 
   useEffect(() => {
-    const { token, _id: id } = JSON.parse(localStorage.user);
-    const getUserSales = (array: Array<OrderType>) =>
-      array.filter(arr => arr.user_id === id);
+    try {
+      const { token, _id: id } = JSON.parse(localStorage.user);
+      const getUserSales = (array: Array<OrderType>) =>
+        array.filter(arr => arr.user_id === id);
 
-    axios
-      .get('https://eatflavor-bd.herokuapp.com/sales', {
-        headers: { authorization: token }
-      })
-      .then(r => {
-        const salesList = getUserSales(r.data.sales);
-        console.log(salesList);
-        setSales(salesList as never[]);
-      })
-      .catch(() => console.log('erro'));
+      axios
+        .get('https://eatflavor-bd.herokuapp.com/sales', {
+          headers: { authorization: token }
+        })
+        .then(r => {
+          const salesList = getUserSales(r.data.sales);
+          console.log(salesList);
+          setSales(salesList as never[]);
+        })
+        .catch(() => console.log('erro'));
+    } catch (err) {
+      console.error(err);
+    }
   }, []);
 
   useEffect(() => {}, []);

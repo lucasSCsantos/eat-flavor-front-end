@@ -7,6 +7,7 @@ import OrderTrack from '../pages/OrderTrack';
 import Orders from '../pages/Orders';
 import AdminOrders from '../pages/AdminOrders';
 import Admin from '../pages/Admin';
+import AdminOrderTrack from '../pages/AdminOrderTrack';
 
 function RoutesList() {
   return (
@@ -21,7 +22,7 @@ function RoutesList() {
       </Route>
       <Route path="/admin" element={<Admin />}>
         <Route path="orders" element={<AdminOrders />} />
-        <Route path=":order/track" />
+        <Route path=":order/track" element={<AdminOrderTrack />} />
       </Route>
     </Routes>
   );

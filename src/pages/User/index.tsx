@@ -1,17 +1,41 @@
 import { Container, Nav, Navbar } from 'react-bootstrap';
-import { Outlet } from 'react-router';
+import { Outlet, useNavigate } from 'react-router';
 import {
   BsFillHouseFill,
   BsReceipt,
   BsBagFill,
   BsBoxArrowRight
 } from 'react-icons/bs';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import logo from '../../images/eat_Flavor-black.png';
 import Checkout from './Checkout';
 
 function User() {
+  const navigate = useNavigate();
   const [show, setShow] = useState(false);
+  useEffect(() => {
+    const validateToken = async (token: string) => {
+      const isValid = await axios
+        .post('https://eatflavor-bd.herokuapp.com/validate', { token })
+        .then(r => r.data.validUser);
+      return isValid;
+    };
+
+    const getUser = async () => {
+      try {
+        const loggedUser = JSON.parse(localStorage.user);
+        const isValid = await validateToken(loggedUser.token);
+        if (!isValid) {
+          navigate('/login');
+        }
+      } catch (err) {
+        navigate('/login');
+      }
+    };
+
+    getUser();
+  }, [navigate]);
   return (
     <>
       <Navbar bg="white" expand="lg" className="shadow-sm">

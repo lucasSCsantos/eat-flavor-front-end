@@ -8,16 +8,19 @@ function AdminOrders() {
   const [sales, setSales] = useState([]);
 
   useEffect(() => {
-    const { token } = JSON.parse(localStorage.user);
-
-    axios
-      .get('https://eatflavor-bd.herokuapp.com/sales', {
-        headers: { authorization: token }
-      })
-      .then(r => {
-        setSales(r.data.sales);
-      })
-      .catch(() => console.log('erro'));
+    try {
+      const { token } = JSON.parse(localStorage.user);
+      axios
+        .get('https://eatflavor-bd.herokuapp.com/sales', {
+          headers: { authorization: token }
+        })
+        .then(r => {
+          setSales(r.data.sales);
+        })
+        .catch(() => console.log('erro'));
+    } catch (err) {
+      console.error(err);
+    }
   }, []);
 
   useEffect(() => {}, []);
