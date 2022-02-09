@@ -27,7 +27,7 @@ function User() {
       try {
         const loggedUser = JSON.parse(localStorage.user);
         const isValid = await validateToken(loggedUser.token);
-        if (!isValid) {
+        if (!isValid || loggedUser.email === 'admin@admin.com') {
           navigate('/login');
         }
       } catch (err) {
@@ -41,12 +41,20 @@ function User() {
   useEffect(() => {
     try {
       const loggedUser = JSON.parse(localStorage.user);
-      const checkout = JSON.parse(localStorage[`checkout_${loggedUser.email}`]);
-      const quant = checkout.products.reduce(
-        (acc: number, curr: { cont: number }) => acc + curr.cont,
-        0
-      );
-      if (checkout) setTotal(quant);
+      if (
+        localStorage &&
+        loggedUser &&
+        localStorage[`checkout_${loggedUser.email}`]
+      ) {
+        const checkout = JSON.parse(
+          localStorage[`checkout_${loggedUser.email}`]
+        );
+        const quant = checkout.products.reduce(
+          (acc: number, curr: { cont: number }) => acc + curr.cont,
+          0
+        );
+        if (checkout) setTotal(quant);
+      }
     } catch (err) {
       console.error(err);
     }
@@ -55,7 +63,7 @@ function User() {
     <>
       <Navbar bg="white" expand="lg" className="shadow-sm">
         <Container>
-          <Navbar.Brand href="/users/products">
+          <Navbar.Brand href="/user/products">
             <img
               src={logo}
               width="80"

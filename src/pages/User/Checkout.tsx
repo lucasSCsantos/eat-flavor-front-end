@@ -72,10 +72,11 @@ function Checkout({ show, onHide }: CheckoutProps) {
             { headers: { authorization: token } }
           )
           .then(r => {
-            navigate(`/user/${r.data._id}/track`);
-            onHide(false);
-            setLoading(false);
             localStorage.removeItem(`checkout_${email}`);
+            onHide(false);
+            navigate(`/user/${r.data._id}/track`);
+            window.location.reload();
+            setLoading(false);
             setAddress('');
           })
           .catch(() => console.log('erro'));

@@ -8,7 +8,6 @@ export default (status: string) => {
     name: '',
     color: ''
   };
-  console.log(status);
   switch (status) {
     case 'pending':
       statusData = { name: 'Pendente', color: 'danger' };
