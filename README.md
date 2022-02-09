@@ -35,6 +35,9 @@ Essa aplicação foi desenvolvida como prova técnica full-stack para a empresa 
 - Fazer logout
 
 ### Administrador
+
+<img alt="Admin" src="https://i.imgur.com/TmNn88r.gif"/>
+
 - Logar como administrador
 - Listar todos os pedidos
 - Acompanhar e atualizar status de cada pedido
