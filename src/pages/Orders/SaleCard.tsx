@@ -48,8 +48,6 @@ function SaleCard({ sale }: SaleCardProps) {
                   {moment(sale.sale_date).format('DD/MM/YYYY')}
                 </h4>
               </Col>
-
-              {/* <Card.Text className="h-75">{product.description}</Card.Text> */}
             </Row>
 
             <Row className="h-50">
