@@ -6,7 +6,8 @@ import {
   Row,
   Button,
   Image,
-  Spinner
+  Spinner,
+  Modal
 } from 'react-bootstrap';
 import { useNavigate } from 'react-router';
 import { FormEvent, useEffect, useState } from 'react';
@@ -23,8 +24,8 @@ function Register() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setRegisterError(false), 2000);
-  }, [registerError]);
+    setTimeout(() => setRegisterError(false), 3000);
+  }, [loading]);
 
   const signOn = (e: FormEvent) => {
     e.preventDefault();
@@ -40,7 +41,10 @@ function Register() {
         navigate('/user/products');
       })
       .then(() => setLoading(false))
-      .catch(() => setRegisterError(true));
+      .catch(() => {
+        setLoading(false);
+        setRegisterError(true);
+      });
   };
 
   return (
@@ -49,6 +53,10 @@ function Register() {
       style={{ width: '100vw', height: '100vh' }}
       className="d-flex justify-content-center"
     >
+      <Modal show={registerError}>
+        <Modal.Body>Email ou senha inválidos</Modal.Body>
+      </Modal>
+
       <Image
         src={logo}
         style={{ width: '138px', height: '138px', left: '80px', top: '50px' }}
