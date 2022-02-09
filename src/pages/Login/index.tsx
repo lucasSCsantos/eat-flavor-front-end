@@ -52,7 +52,7 @@ function Login() {
 
   useEffect(() => {
     setTimeout(() => setLoginError(false), 2000);
-  }, [loginError]);
+  }, [loading]);
 
   const logIn = (e: FormEvent) => {
     e.preventDefault();
@@ -67,7 +67,10 @@ function Login() {
         checkNavigation(r.data);
       })
       .then(() => setLoading(false))
-      .catch(() => setLoginError(true));
+      .catch(() => {
+        setLoading(false);
+        setLoginError(true);
+      });
   };
 
   return (
