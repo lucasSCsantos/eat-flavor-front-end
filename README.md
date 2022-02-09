@@ -14,7 +14,7 @@
   <img alt="About" src="https://i.imgur.com/ubGUpZq.gif" width="400" />
 </h1>
 
-# :page_with_curl: Apresentação
+# 🎉 Apresentação
 
 A EatFlavor é uma empresa de delivery com uma proposta inovadora, ter uma única opção de menu durante uma semana inteira. Na era que vivemos somos acostumados a ter tantas opções que muitas vezes não conseguimos escolher. Isso acontece com filmes, delivery e etc... Por isso nós surgimos com o propósito de trazer de volta épocas mais simples. No nosso app, após fazer o cadastro, você só terá uma opção de prato principal, bebida e sobremesa, escolhidos com muito carinho pelo nosso chefe. EatFlavor não é só um app de delivery, é também uma experiencia gastronômica para toda a família. Venha desfrutar desse sabor, registre-se agora em: https://eatflavor-fd.herokuapp.com/ 
 
