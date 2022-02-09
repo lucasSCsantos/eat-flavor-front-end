@@ -68,5 +68,4 @@ Esse projeto foi desenvolvido com:
   # Depois disso pelo app Expo Go, escaneie o QR code exibido no terminal
 ```
 
-# ❤
-- [Aplicação]() e [Design]() desenvolvidos por [Lucas Santana](https://github.com/lucasSCsantos) com ❤
+[Aplicação]() e [Design]() desenvolvidos por [Lucas Santana](https://github.com/lucasSCsantos) com ❤
