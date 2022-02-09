@@ -5,6 +5,8 @@ import Register from '../pages/Register';
 import Products from '../pages/Products';
 import OrderTrack from '../pages/OrderTrack';
 import Orders from '../pages/Orders';
+import AdminOrders from '../pages/AdminOrders';
+import Admin from '../pages/Admin';
 
 function RoutesList() {
   return (
@@ -17,8 +19,10 @@ function RoutesList() {
         <Route path="orders" element={<Orders />} />
         <Route path=":order/track" element={<OrderTrack />} />
       </Route>
-      <Route path="/admin/orders" />
-      <Route path="/admin/:order/track" />
+      <Route path="/admin" element={<Admin />}>
+        <Route path="orders" element={<AdminOrders />} />
+        <Route path=":order/track" />
+      </Route>
     </Routes>
   );
 }

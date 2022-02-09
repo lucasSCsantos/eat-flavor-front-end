@@ -10,7 +10,7 @@ import { useState } from 'react';
 import logo from '../../images/eat_Flavor-black.png';
 import Checkout from './Checkout';
 
-function Products() {
+function User() {
   const [show, setShow] = useState(false);
   return (
     <>
@@ -51,4 +51,4 @@ function Products() {
   );
 }
 
-export default Products;
+export default User;
