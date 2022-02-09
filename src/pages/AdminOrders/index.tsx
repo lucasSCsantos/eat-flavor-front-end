@@ -1,27 +1,24 @@
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Container, Row, Spinner } from 'react-bootstrap';
-import ProductCard, { ProductType } from './ProductCard';
+import { OrderType } from '../OrderTrack';
+import SaleCard from '../Orders/SaleCard';
 
-function Products() {
-  const [products, setProducts] = useState([]);
+function AdminOrders() {
+  const [sales, setSales] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     try {
+      const { token } = JSON.parse(localStorage.user);
       setLoading(true);
-      let token = '';
-      if (localStorage && localStorage.user) {
-        token = JSON.parse(localStorage.user).token;
-      }
-
       axios
-        .get('https://eatflavor-bd.herokuapp.com/products', {
+        .get('https://eatflavor-bd.herokuapp.com/sales', {
           headers: { authorization: token }
         })
         .then(r => {
-          setProducts(r.data.products);
           setLoading(false);
+          setSales(r.data.sales);
         })
         .catch(() => setLoading(false));
     } catch (err) {
@@ -29,19 +26,18 @@ function Products() {
     }
   }, []);
 
+  useEffect(() => {}, []);
+
   return (
     <Container fluid="lg" className="d-grid" style={{ height: '866px' }}>
-      <Row className="w-100 pt-5 mt-5" style={{ height: '50vh' }}>
-        <Row className="m-auto">
-          <h1 className="fw-bold mb-4">Menu do dia</h1>
-        </Row>
+      <Row className="w-100 mt-5" style={{ height: '50vh' }}>
         <Row
           className="m-auto d-flex justify-content-between"
           style={{ height: '90%' }}
         >
           {!loading ? (
-            products.map((product: ProductType) => (
-              <ProductCard product={product} key={product.name} />
+            sales.map((sale: OrderType) => (
+              <SaleCard sale={sale} key={sale._id} />
             ))
           ) : (
             <Spinner
@@ -59,4 +55,4 @@ function Products() {
   );
 }
 
-export default Products;
+export default AdminOrders;

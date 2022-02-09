@@ -30,8 +30,12 @@ function Checkout({ show, onHide }: CheckoutProps) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const { email } = JSON.parse(localStorage.user);
     try {
+      let email = '';
+      if (localStorage && localStorage.user) {
+        email = JSON.parse(localStorage.user).email;
+      }
+
       if (localStorage && localStorage[`checkout_${email}`]) {
         const {
           products: productsList,
@@ -49,33 +53,38 @@ function Checkout({ show, onHide }: CheckoutProps) {
   }, [show]);
 
   const checkOut = () => {
-    const { _id: id, token, email } = JSON.parse(localStorage.user);
-    if (address && products) {
-      setLoading(true);
-      axios
-        .post(
-          'https://eatflavor-bd.herokuapp.com/sales',
-          {
-            address,
-            total_price: total,
-            sale_date: new Date(),
-            status: 'pending',
-            products,
-            user_id: id
-          },
-          { headers: { authorization: token } }
-        )
-        .then(r => {
-          navigate(`/user/${r.data._id}/track`);
-          onHide(false);
-          setLoading(false);
-          localStorage.removeItem(`checkout_${email}`);
-          setAddress('');
-        })
-        .catch(() => console.log('erro'));
-    } else {
-      setCheckoutError(true);
-      setTimeout(() => setCheckoutError(false), 3000);
+    try {
+      const { _id: id, token, email } = JSON.parse(localStorage.user);
+
+      if (address && products) {
+        setLoading(true);
+        axios
+          .post(
+            'https://eatflavor-bd.herokuapp.com/sales',
+            {
+              address,
+              total_price: total,
+              sale_date: new Date(),
+              status: 'pending',
+              products,
+              user_id: id
+            },
+            { headers: { authorization: token } }
+          )
+          .then(r => {
+            navigate(`/user/${r.data._id}/track`);
+            onHide(false);
+            setLoading(false);
+            localStorage.removeItem(`checkout_${email}`);
+            setAddress('');
+          })
+          .catch(() => console.log('erro'));
+      } else {
+        setCheckoutError(true);
+        setTimeout(() => setCheckoutError(false), 3000);
+      }
+    } catch (err) {
+      console.error(err);
     }
   };
 
@@ -83,7 +92,7 @@ function Checkout({ show, onHide }: CheckoutProps) {
     <>
       <Modal show={checkoutError}>
         <Modal.Body>
-          Não foi possível concluir a compra, confira seu endereço e produtos
+          Não foi possível concluir a compra, confira sua morada e produtos
         </Modal.Body>
       </Modal>
       <Offcanvas
@@ -108,7 +117,7 @@ function Checkout({ show, onHide }: CheckoutProps) {
             <Row className="h-50 p-0 m-auto">
               <Form>
                 <Form.Group>
-                  <Form.Label>Endereço</Form.Label>
+                  <Form.Label>Morada</Form.Label>
                   <Form.Control
                     value={address}
                     onChange={({ target }) => setAddress(target.value)}
@@ -119,7 +128,7 @@ function Checkout({ show, onHide }: CheckoutProps) {
               </Form>
             </Row>
             <Row className="h-50 m-auto">
-              <h2 className="fw-bold">Total: € {total.toFixed(2)}</h2>
+              <h2 className="fw-bold">Total: € {+total.toFixed(2)}</h2>
               <Button variant="success" onClick={() => checkOut()}>
                 Finalizar compra
               </Button>

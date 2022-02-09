@@ -1,4 +1,5 @@
 import { Button, Card, Col, Row } from 'react-bootstrap';
+import removeOfCart from '../../helpers/removeOfCart';
 import { ProductType } from '../Products/ProductCard';
 
 interface ProductCardProps {
@@ -28,6 +29,10 @@ function CheckoutCard({ product }: ProductCardProps) {
                 variant="success"
                 style={{ height: '30px', textAlign: 'center' }}
                 className="p-0"
+                onClick={() => {
+                  removeOfCart(product);
+                  window.location.reload();
+                }}
               >
                 Remover
               </Button>

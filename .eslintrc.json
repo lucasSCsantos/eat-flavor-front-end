@@ -36,6 +36,7 @@
       "react/function-component-definition": "off",
       "no-underscore-dangle": "off",
       "import/no-cycle": [0, { "ignoreExternal": true }],
-      "no-console": "off"
+      "no-console": "off",
+      "react/no-unstable-nested-components": "off"
   }
 }

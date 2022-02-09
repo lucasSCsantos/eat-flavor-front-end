@@ -1,10 +1,9 @@
 import { ProductType } from '../pages/Products/ProductCard';
 
 export default (product: ProductType) => {
-  const productToAdd = { cont: 1, ...product };
-  const { email } = JSON.parse(localStorage.user);
-
   try {
+    const productToAdd = { cont: 1, ...product };
+    const { email } = JSON.parse(localStorage.user);
     if (localStorage && localStorage[`checkout_${email}`]) {
       const storage = JSON.parse(localStorage[`checkout_${email}`]);
       const { products } = storage;
