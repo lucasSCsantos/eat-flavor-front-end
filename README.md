@@ -43,10 +43,10 @@ Essa aplicação foi desenvolvida como prova técnica full-stack para a empresa 
   <summary>Email e Senha para o fluxo de administrador</summary>
   
   ```json
-  {
-		"email": "admin@admin.com",
-		"palavra-passe": "adminadmin"
-	}
+{
+	"email": "admin@admin.com",
+	"palavra-passe": "adminadmin"
+}
   ```
   
 </details>
