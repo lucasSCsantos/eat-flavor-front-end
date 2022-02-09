@@ -1,46 +1,72 @@
-# Getting Started with Create React App
+<h1 align="center">
+  <img alt="Pokedex" src="http://1.bp.blogspot.com/-0V4itR_v87M/UtsCF-ehNYI/AAAAAAAABjU/UEQ5Jiy_85o/s1600/pokedex-3d-logo.png" width="250px" />
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/lucasSCsantos/pokedexApp">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/lucasSCsantos/pokedexApp">
+  <img alt="Stars" src="https://img.shields.io/github/stars/lucasSCsantos/pokedexApp">
+  <img alt="Repository Size" src="https://img.shields.io/github/repo-size/lucasSCsantos/pokedexApp">
+</p>
 
-## Available Scripts
+<p align="center">
+  <a href="#page_with_curl-about">About</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#hammer-technologies">Technologies</a>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#books-requirements">Requirements</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#rocket-getting-started">Getting started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#thought_balloon-inspiration">Inspiration</a>
+</p>
 
-In the project directory, you can run:
+<h1 align="center">
+  <img alt="Home" src="https://i.imgur.com/KcNSlO4.gif" width="400" />
+  <img alt="About" src="https://i.imgur.com/ubGUpZq.gif" width="400" />
+</h1>
 
-### `npm start`
+## :page_with_curl: Sobre
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+A PokedexApp é um app de [Pokedex](https://pokemon.fandom.com/wiki/Pok%C3%A9dex) e tem as funções de listar, pesquisar e ver detalhes de um Pokemon.
+Este app foi feito como teste técnico para a empresa [OnBank](https://onbank.com.br/) utilizando da [PokéAPI](https://pokeapi.co/). 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 🔧 Recursos
 
-### `npm test`
+- Buscar pokemons e outros detalhes da [PokéAPI](https://pokeapi.co/)
+- Listar pokemons (151 originais)
+- Pesquisar pokemon por nome
+- Ver detalhes de um pokemon (Pokedex Data e Stats)
+- Navegar entre as telas Home e About (Detalhes de pokemon)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## :hammer: Tecnologias
 
-### `npm run build`
+Esse projeto foi desenvolvido com:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [Expo](https://expo.io/)
+- [React Native](https://reactnative.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [React Navigation](https://reactnavigation.org/)
+- [React Native Gesture Handler](https://kmagiera.github.io/react-native-gesture-handler/)
+- [React Native Svg](https://github.com/react-native-svg/react-native-svg)
+- [Redux](https://redux.js.org/)
+- [Styled Components](https://styled-components.com/)
+- [@expo/vector-icons](https://docs.expo.io/guides/icons/)
+- [ESLint](https://eslint.org/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## :arrow_down: Instalação
+``` bash
+  # Clone o repositório:
+  $ https://github.com/lucasSCsantos/pokedexApp
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  # Entrar no diretório:
+  $ cd pokedexApp
+  
+  # Instale as dependencias:
+  $ yarn
+  
+  # Inicie o app:
+  $ yarn start
+  
+  # Depois disso pelo app Expo Go, escaneie o QR code exibido no terminal
+```
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+# :thought_balloon: Inspiração
+- Design inspirado no [Pokedex App design](https://www.behance.net/gallery/95727849/Pokdex-App) feito pelo [Flávio Farias](https://farias.design/).
