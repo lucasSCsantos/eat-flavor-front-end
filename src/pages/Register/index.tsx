@@ -54,7 +54,9 @@ function Register() {
       className="d-flex justify-content-center"
     >
       <Modal show={registerError}>
-        <Modal.Body>Email ou senha inválidos</Modal.Body>
+        <Modal.Body>
+          Email ou senha inválidos, a senha precisa ter pelo menos 6 caracteres
+        </Modal.Body>
       </Modal>
 
       <Image

@@ -25,7 +25,7 @@ function SaleCard({ sale }: SaleCardProps) {
 
   return (
     <Card
-      style={{ width: '38rem', height: '10rem' }}
+      style={{ width: '38rem', height: 'fit-content' }}
       className="p-0 shadow-sm mb-4"
     >
       <Link
