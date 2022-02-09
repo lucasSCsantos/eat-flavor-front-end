@@ -60,6 +60,7 @@ Essa aplicação foi desenvolvida como prova técnica full-stack para a empresa 
 # ⏭ Próximos Passos
 
 - Utilizar socket.io para atualização em tempo real
+- Validar dados de login e registro no front-end
 
 # :hammer: Tecnologias
 
