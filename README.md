@@ -51,7 +51,7 @@ Esse projeto foi desenvolvido com:
 - [Moment](https://styled-components.com/)
 - [ESLint](https://eslint.org/)
 
-## :arrow_down: Instalação
+# :arrow_down: Instalação
 ``` bash
   # Clone o repositório:
   $ https://github.com/lucasSCsantos/eat-flavor-front-end
@@ -68,5 +68,5 @@ Esse projeto foi desenvolvido com:
   # Depois disso pelo app Expo Go, escaneie o QR code exibido no terminal
 ```
 
-# ❤ Desenvolvido
+# ❤
 - [Aplicação]() e [Design]() desenvolvidos por [Lucas Santana](https://github.com/lucasSCsantos) com ❤
