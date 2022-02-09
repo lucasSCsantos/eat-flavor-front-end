@@ -19,7 +19,7 @@ A EatFlavor é uma empresa de delivery com uma proposta inovadora, ter uma únic
 
 # :page_with_curl: Sobre
 
-Essa aplicação foi desenvolvida como prova técnica full-stack para a empresa EatTasty e este é o repositório front-end, o back-end você encontra em: https://github.com/lucasSCsantos/eat-flavor-back-end. No primeiro momento foi feito o design com [Figma](https://www.figma.com/) utilizando o UI kit do react bootstrap. A aplicação foi desenvolvida com o framework [React](https://pt-br.reactjs.org/) e [TypeScript](https://www.typescriptlang.org/) e contem dois fluxos: Usuário e Administrador. O usuário pode escolher produtos, fazer o checkout e acompanhar seus pedidos e o administrador pode acompanhar e atualizar o status de todos os pedidos. O sistema de roteamento foi desenvolvido com [React Router](https://reactrouter.com/) e toda estilização das páginas feitas com [React Bootstrap](https://reactrouter.com/).
+Essa aplicação foi desenvolvida como prova técnica full-stack para a empresa [EatTasty](https://eattasty.pt/home) e este é o repositório front-end, o back-end você encontra em: https://github.com/lucasSCsantos/eat-flavor-back-end. No primeiro momento foi feito o design com [Figma](https://www.figma.com/) utilizando o UI kit do react bootstrap. A aplicação foi desenvolvida com o framework [React](https://pt-br.reactjs.org/) e [TypeScript](https://www.typescriptlang.org/) e contem dois fluxos: Usuário e Administrador. O usuário pode escolher produtos, fazer o checkout e acompanhar seus pedidos e o administrador pode acompanhar e atualizar o status de todos os pedidos. O sistema de roteamento foi desenvolvido com [React Router](https://reactrouter.com/) e toda estilização das páginas feitas com [React Bootstrap](https://reactrouter.com/), a aplicação não é responsiva e só deve funcionar em computadores.
 
 # 🔧 Recursos
 
@@ -60,6 +60,8 @@ Essa aplicação foi desenvolvida como prova técnica full-stack para a empresa 
 # ⏭ Próximos Passos
 
 - Utilizar socket.io para atualização em tempo real
+- Validar dados de login e registro no front-end
+- Aplicar responsividade
 
 # :hammer: Tecnologias
 
