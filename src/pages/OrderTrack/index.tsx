@@ -6,6 +6,9 @@ import checkStatus, { StatusDataType } from '../../helpers/checkStatus';
 import orderMock from '../../mocks/orderMock';
 import { ProductType } from '../Products/ProductCard';
 
+// const socket = io('http://localhost:3000');
+// sockect.on('connect', () => console.log('user CONECTADO'))
+
 export type OrderType = {
   address: string;
   total_price: number;
@@ -27,6 +30,14 @@ function OrderTrack() {
   const [reload, setReload] = useState(false);
   const [delivered, setDelivered] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  // useEffect(() => {
+  //   socket.on('status', status => {
+  //     const newStatus = checkStatus(status);
+  //     setStatusData(newStatus);
+  //     setDelivered(true);
+  //   });
+  // }, []);
 
   useEffect(() => {
     try {
@@ -58,6 +69,7 @@ function OrderTrack() {
 
   const confirm = async () => {
     try {
+      // sockect.emit('status', 'delivered');
       const { token } = JSON.parse(localStorage.user);
       axios
         .put(

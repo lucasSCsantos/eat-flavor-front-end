@@ -7,6 +7,9 @@ import checkStatus, { StatusDataType } from '../../helpers/checkStatus';
 import orderMock from '../../mocks/orderMock';
 import { OrderType } from '../OrderTrack';
 
+// const socket = io('http://localhost:3000');
+// sockect.on('connect', () => console.log('ADMIN CONECTADO'))
+
 function AdminOrderTrack() {
   const [order, setOrder] = useState<OrderType>(orderMock);
   const { order: id } = useParams();
@@ -16,6 +19,14 @@ function AdminOrderTrack() {
   });
   const [reload, setReload] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  // useEffect(() => {
+  //   socket.on('status', status => {
+  //     const newStatus = checkStatus(status);
+  //     setStatusData(newStatus);
+  //     setDelivered(true);
+  //   });
+  // }, []);
 
   useEffect(() => {
     try {
@@ -43,6 +54,7 @@ function AdminOrderTrack() {
   const confirmOrSend = async (status: string) => {
     try {
       const { token } = JSON.parse(localStorage.user);
+      // sockect.emit('status', status);
       axios
         .put(
           `https://eatflavor-bd.herokuapp.com/sales/${id}`,
